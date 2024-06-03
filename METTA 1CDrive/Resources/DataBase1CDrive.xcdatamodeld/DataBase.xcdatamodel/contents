@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22757" systemVersion="23E224" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="ColdClientEntity" representedClassName=".ColdClientEntity" syncable="YES" codeGenerationType="category">
+        <attribute name="name" attributeType="String"/>
+        <attribute name="uuid" attributeType="String"/>
+        <relationship name="contactDetailsColdClient" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ContactDetailsColdClientEntity" inverseName="coldClient" inverseEntity="ContactDetailsColdClientEntity"/>
+        <relationship name="contactPersonColdClient" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ContactPersonColdClientEntity" inverseName="coldClient" inverseEntity="ContactPersonColdClientEntity"/>
+    </entity>
+    <entity name="CompaniesEntity" representedClassName=".CompaniesEntity" syncable="YES" codeGenerationType="category">
+        <attribute name="kpp" optional="YES" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="tin" optional="YES" attributeType="String"/>
+        <attribute name="uuid" attributeType="String"/>
+    </entity>
+    <entity name="ContactDetailsColdClientEntity" representedClassName=".ContactDetailsColdClientEntity" syncable="YES" codeGenerationType="category">
+        <attribute name="kind" attributeType="String"/>
+        <attribute name="owner_uuid" attributeType="String"/>
+        <attribute name="presentation" attributeType="String"/>
+        <relationship name="coldClient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ColdClientEntity" inverseName="contactDetailsColdClient" inverseEntity="ColdClientEntity"/>
+    </entity>
+    <entity name="ContactDetailsContactPersonColdClientEntity" representedClassName=".ContactDetailsContactPersonColdClientEntity" syncable="YES" codeGenerationType="category">
+        <attribute name="kind" attributeType="String"/>
+        <attribute name="owner_uuid" attributeType="String"/>
+        <attribute name="presentation" attributeType="String"/>
+        <relationship name="contactPersonColdClient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ContactPersonColdClientEntity" inverseName="contactDetailsContactPersonColdClient" inverseEntity="ContactPersonColdClientEntity"/>
+    </entity>
+    <entity name="ContactDetailsContactPersonPartnerEntity" representedClassName=".ContactDetailsContactPersonPartnerEntity" syncable="YES" codeGenerationType="category">
+        <attribute name="kind" attributeType="String"/>
+        <attribute name="owner_uuid" attributeType="String"/>
+        <attribute name="presentation" attributeType="String"/>
+        <relationship name="contactPersonPartner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ContactPersonPartnerEntity" inverseName="contactDetailsContactPersonPartner" inverseEntity="ContactPersonPartnerEntity"/>
+    </entity>
+    <entity name="ContactDetailsPartnerEntity" representedClassName=".ContactDetailsPartnerEntity" syncable="YES" codeGenerationType="category">
+        <attribute name="kind" attributeType="String"/>
+        <attribute name="owner_uuid" attributeType="String"/>
+        <attribute name="presentation" attributeType="String"/>
+        <relationship name="partner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PartnerEntity" inverseName="contactDetailsPartner" inverseEntity="PartnerEntity"/>
+    </entity>
+    <entity name="ContactPersonColdClientEntity" representedClassName=".ContactPersonColdClientEntity" syncable="YES" codeGenerationType="category">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="owner_uuid" optional="YES" attributeType="String"/>
+        <attribute name="uuid" optional="YES" attributeType="String"/>
+        <relationship name="coldClient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ColdClientEntity" inverseName="contactPersonColdClient" inverseEntity="ColdClientEntity"/>
+        <relationship name="contactDetailsContactPersonColdClient" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ContactDetailsContactPersonColdClientEntity" inverseName="contactPersonColdClient" inverseEntity="ContactDetailsContactPersonColdClientEntity"/>
+    </entity>
+    <entity name="ContactPersonPartnerEntity" representedClassName=".ContactPersonPartnerEntity" syncable="YES" codeGenerationType="category">
+        <attribute name="name" attributeType="String"/>
+        <attribute name="owner_uuid" attributeType="String"/>
+        <attribute name="uuid" attributeType="String"/>
+        <relationship name="contactDetailsContactPersonPartner" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ContactDetailsContactPersonPartnerEntity" inverseName="contactPersonPartner" inverseEntity="ContactDetailsContactPersonPartnerEntity"/>
+        <relationship name="partner" maxCount="1" deletionRule="Nullify" destinationEntity="PartnerEntity" inverseName="contactPersonPartner" inverseEntity="PartnerEntity"/>
+    </entity>
+    <entity name="CounterpartiesEntity" representedClassName=".CounterpartiesEntity" syncable="YES" codeGenerationType="category">
+        <attribute name="kpp" optional="YES" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="owner_uuid" attributeType="String"/>
+        <attribute name="tin" optional="YES" attributeType="String"/>
+        <attribute name="uuid" attributeType="String"/>
+    </entity>
+    <entity name="PartnerEntity" representedClassName=".PartnerEntity" syncable="YES" codeGenerationType="category">
+        <attribute name="name" attributeType="String"/>
+        <attribute name="uuid" attributeType="String"/>
+        <relationship name="contactDetailsPartner" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ContactDetailsPartnerEntity" inverseName="partner" inverseEntity="ContactDetailsPartnerEntity"/>
+        <relationship name="contactPersonPartner" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ContactPersonPartnerEntity" inverseName="partner" inverseEntity="ContactPersonPartnerEntity"/>
+    </entity>
+    <entity name="PurposeOfContactEntity" representedClassName=".PurposeOfContactEntity" syncable="YES" codeGenerationType="category">
+        <attribute name="name" attributeType="String"/>
+        <attribute name="uuid" attributeType="String"/>
+    </entity>
+    <entity name="StatusOfClientEntity" representedClassName=".StatusOfClientEntity" syncable="YES" codeGenerationType="category">
+        <attribute name="name" attributeType="String"/>
+        <attribute name="uuid" attributeType="String"/>
+    </entity>
+    <entity name="StatusOfMeetingEntity" representedClassName=".StatusOfMeetingEntity" syncable="YES" codeGenerationType="category">
+        <attribute name="name" attributeType="String"/>
+        <attribute name="uuid" attributeType="String"/>
+    </entity>
+    <entity name="TermsOfSaleEntity" representedClassName=".TermsOfSaleEntity" syncable="YES" codeGenerationType="category">
+        <attribute name="contracts_are_used" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="effective_date" attributeType="String"/>
+        <attribute name="expiration_date" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="owner_uuid" attributeType="String"/>
+        <attribute name="supply_orders_separately" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="uuid" attributeType="String"/>
+        <attribute name="uuidCompanies" attributeType="String"/>
+        <attribute name="uuidCounterparties" attributeType="String"/>
+    </entity>
+</model>
